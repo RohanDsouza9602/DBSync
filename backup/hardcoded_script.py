@@ -21,13 +21,11 @@ def main():
     print("SOURCE:::::", source_config)
     print("TARGET:::::", target_config)
     print("MAPPING:::::", mappings_config)
-    # fk_mappings = mappings_config.get('foreign_keys', [])
-    # reference_db_type = source_config['tables'][0]['db_type']
-    # print(reference_db_type)
-    # target_db_type = target_config['tables'][0]['db_type']
-    # print(target_db_type)
-
-    return
+    fk_mappings = mappings_config.get("foreign_keys", [])
+    reference_db_type = source_config["tables"][0]["db_type"]
+    print(reference_db_type)
+    target_db_type = target_config["tables"][0]["db_type"]
+    print(target_db_type)
 
     if not source_config or not target_config or not mappings_config:
         print("Error loading YAML files. Exiting.")

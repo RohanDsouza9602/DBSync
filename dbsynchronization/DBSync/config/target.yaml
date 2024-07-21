@@ -1,0 +1,52 @@
+tables:
+  - name: client_master
+    db_type: PostgreSQL
+    key_column: clt_lwcustid
+    columns:
+      - clt_lwcustid
+      - name
+      - pan
+      - adhr
+  - name: dp_details
+    db_type: PostgreSQL
+    key_column: dp_id
+    columns:
+      - dp_id
+      - name
+  - name: client_info
+    db_type: PostgreSQL
+    key_column: cust_id
+    columns:
+      - cust_id
+      - pan
+      - state
+  - name: CUSTOMER_MASTER
+    db_type: MySQL
+    key_column: customer_id
+    columns:
+      - customer_id
+      - name
+      - pan
+      - aadhaar
+      - state
+      - DP_ID
+
+#tables:
+#  - name: CUSTOMER_MASTER
+#    db_type: MySQL
+#    key_column: customer_id
+#    columns:
+#      - customer_id
+#      - name
+#      - pan
+#      - aadhaar
+#      - state
+#      - DP_ID
+#  - name: client_master
+#    db_type: PostgreSQL
+#    key_column: clt_lwcustid
+#    columns:
+#      - clt_lwcustid
+#      - name
+#      - pan
+#      - adhr

@@ -1,0 +1,51 @@
+mappings:
+  - reference_table: client_master
+    target_table: client_master
+    key_column_mapping:
+      - reference_column: clt_lwcustid
+        target_column: clt_lwcustid
+      - reference_column: name
+        target_column: name
+      - reference_column: pan
+        target_column: pan
+      - reference_column: adhr
+        target_column: adhr
+
+  - reference_table: CUSTOMER_MASTER
+    target_table: client_master
+    key_column_mapping:
+      - reference_column: customer_id
+        target_column: clt_lwcustid
+      - reference_column: name
+        target_column: name
+      - reference_column: pan
+        target_column: pan
+      - reference_column: aadhaar
+        target_column: adhr
+
+  - reference_table: CUSTOMER_MASTER
+    target_table: dp_details
+    key_column_mapping:
+      - reference_column: DP_ID
+        target_column: dp_id
+      - reference_column: name
+        target_column: name
+
+  - reference_table: CUSTOMER_MASTER
+    target_table: client_info
+    key_column_mapping:
+      - reference_column: customer_id
+        target_column: cust_id
+      - reference_column: pan
+        target_column: pan
+      - reference_column: state
+        target_column: state
+
+foreign_keys:
+  - dependant_table: dp_details
+    dependant_foreign_key: clt_lsrno
+    master_table: client_master
+    master_key: srno
+    reference_via:
+      dependant_reference: clt_lwcustid
+      master_reference: customer_id

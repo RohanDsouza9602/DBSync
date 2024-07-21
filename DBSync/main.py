@@ -16,10 +16,13 @@ from utilities import load_yaml
 
 
 def main():
-    mappings_config = load_yaml("config/mappings.yaml")
-    source_config = load_yaml("config/source.yaml")
-    target_config = load_yaml("config/target.yaml")
+    mappings_config = load_yaml("DBSync/config/mappings.yaml")
+    source_config = load_yaml("DBSync/config/source.yaml")
+    target_config = load_yaml("DBSync/config/target.yaml")
     fk_mappings = mappings_config.get("foreign_keys", [])
+    print("SOURCE:::::", source_config)
+    print("TARGET:::::", target_config)
+    print("MAPPING:::::", mappings_config)
 
     if not mappings_config:
         print("Error loading mappings configuration. Exiting.")
@@ -153,11 +156,11 @@ def main():
         print(f"Total execution time taken: {end_time - start_time} seconds.")
 
         # Writing SQL commands to files
-        file_name = f"results/mapping_sql_commands_{reference_table_name}_to_{target_table_name}.sql"
+        file_name = f"DBSync/results/mapping_sql_commands_{reference_table_name}_to_{target_table_name}.sql"
         with open(file_name, "w") as file:
             file.write("\n".join(insert_commands + update_commands))
 
-        file_name1 = f"results/mapping_sql_commands_{target_table_name}_to_{reference_table_name}.sql"
+        file_name1 = f"DBSync/results/mapping_sql_commands_{target_table_name}_to_{reference_table_name}.sql"
         with open(file_name1, "w") as file1:
             file1.write("\n".join(insert_reference_commands))
 

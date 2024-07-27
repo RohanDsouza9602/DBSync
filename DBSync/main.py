@@ -12,7 +12,7 @@ from data_fetchers import (
     fetch_db_data,
 )
 from data_synchronization import synchronize_tables
-from utilities import load_yaml
+from DBSync.common.utilities import load_yaml
 
 
 def main():

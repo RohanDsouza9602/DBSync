@@ -30,7 +30,6 @@ tables:
       - aadhaar
       - state
       - DP_ID
-
 #tables:
 #  - name: CUSTOMER_MASTER
 #    db_type: MySQL
